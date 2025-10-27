@@ -1,70 +1,352 @@
-# React.js and Tailwind CSS Assignment
+🎨 Week 3: React.js, JSX, and Tailwind CSS – Mastering Front-End Development
+🚀 Objective
 
-This assignment focuses on building a responsive React application using JSX and Tailwind CSS, implementing component architecture, state management, hooks, and API integration.
+The goal of this project is to build a responsive and interactive React application that demonstrates mastery of JSX, component-based architecture, React hooks, and API integration.
+Styling is implemented using Tailwind CSS to achieve a clean, modern, and responsive UI across all devices.
 
-## Assignment Overview
+🧩 Project Overview
 
-You will:
-1. Set up a React project with Vite and Tailwind CSS
-2. Create reusable UI components
-3. Implement state management using React hooks
-4. Integrate with external APIs
-5. Style your application using Tailwind CSS
+This project demonstrates:
 
-## Getting Started
+Setting up a React app with Vite
 
-1. Accept the GitHub Classroom assignment invitation
-2. Clone your personal repository that was created by GitHub Classroom
-3. Install dependencies:
-   ```
-   npm install
-   ```
-4. Start the development server:
-   ```
-   npm run dev
-   ```
+Implementing reusable UI components
 
-## Files Included
+Managing state using React hooks (useState, useEffect, useContext)
 
-- `Week3-Assignment.md`: Detailed assignment instructions
-- Starter files for your React application:
-  - Basic project structure
-  - Pre-configured Tailwind CSS
-  - Sample component templates
+Fetching and displaying data from a public API
 
-## Requirements
+Applying Tailwind CSS for responsive design and theme switching
 
-- Node.js (v18 or higher)
-- npm or yarn
-- Modern web browser
-- Code editor (VS Code recommended)
+Adding custom animations and transitions for better UX
 
-## Project Structure
+📂 Tasks Breakdown
+🧱 Task 1: Project Setup
 
-```
+Created a new React project using Vite:
+
+npm create vite@latest react-app --template react
+cd react-app
+npm install
+
+
+Installed and configured Tailwind CSS:
+
+npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init -p
+
+
+Updated tailwind.config.cjs:
+
+content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+darkMode: "class",
+
+
+Created project structure:
+
 src/
-├── components/       # Reusable UI components
-├── pages/           # Page components
-├── hooks/           # Custom React hooks
-├── context/         # React context providers
-├── api/             # API integration functions
-├── utils/           # Utility functions
-└── App.jsx          # Main application component
-```
+├── components/
+├── pages/
+├── context/
+├── hooks/
+├── utils/
+├── App.jsx
+└── main.jsx
 
-## Submission
 
-Your work will be automatically submitted when you push to your GitHub Classroom repository. Make sure to:
+Configured React Router for page navigation:
 
-1. Complete all required components and features
-2. Implement proper state management with hooks
-3. Integrate with at least one external API
-4. Style your application with Tailwind CSS
-5. Deploy your application and add the URL to your README.md
+npm install react-router-dom
 
-## Resources
+🧩 Task 2: Component Architecture
 
-- [React Documentation](https://react.dev/)
-- [Tailwind CSS Documentation](https://tailwindcss.com/docs)
-- [Vite Documentation](https://vitejs.dev/guide/)
-- [React Router Documentation](https://reactrouter.com/) 
+Developed reusable and customizable UI components:
+
+🟢 Button Component
+
+Supports multiple variants using props:
+
+<Button variant="primary">Save</Button>
+<Button variant="secondary">Cancel</Button>
+<Button variant="danger">Delete</Button>
+
+
+Variants styled using Tailwind utility classes.
+
+🟡 Card Component
+
+Displays boxed content with flexible props for title and description:
+
+<Card title="Honey Production" content="Learn about sustainable bee farming." />
+
+🔵 Navbar Component
+
+Responsive navigation with links and a theme switcher (light/dark mode).
+
+⚫ Footer Component
+
+Displays copyright,
+privacy, and contact links at the bottom of every page.
+
+🧩 Layout Component
+
+Wraps the main application with Navbar and Footer for consistent UI:
+
+<Layout>
+  <HomePage />
+</Layout>
+
+
+✅ All components are fully reusable and maintainable.
+
+⚙️ Task 3: State Management and Hooks
+
+Implemented a Task Manager that allows users to manage their daily tasks efficiently.
+
+Features:
+
+➕ Add new tasks
+
+✅ Mark tasks as completed
+
+❌ Delete tasks
+
+🔍 Filter tasks: All, Active, Completed
+
+Hooks Used:
+
+useState → manages task state
+
+useEffect → loads and persists tasks to localStorage
+
+useContext → manages light/dark theme
+
+Custom Hook: useLocalStorage
+
+const [tasks, setTasks] = useLocalStorage("tasks", []);
+
+
+✅ Tasks are persisted between browser sessions.
+
+🌐 Task 4: API Integration
+
+Integrated data fetching from a public API (JSONPlaceholder) to display posts dynamically.
+
+API Endpoint:
+https://jsonplaceholder.typicode.com/posts
+
+Implemented Features:
+
+Fetch and display data in a grid layout
+
+Show loading and error states
+
+Added pagination / infinite scrolling
+
+Included a search bar to filter posts
+
+Example fetch logic:
+
+useEffect(() => {
+  setLoading(true);
+  fetch(`https://jsonplaceholder.typicode.com/posts?_limit=10&_page=${page}`)
+    .then(res => res.json())
+    .then(data => setPosts(data))
+    .catch(() => setError("Failed to fetch data"))
+    .finally(() => setLoading(false));
+}, [page]);
+
+
+✅ Demonstrates practical API consumption, state handling, and UI feedback patterns.
+
+🎨 Task 5: Styling with Tailwind CSS
+🧭 Responsive Design
+
+Implemented mobile-first layouts using Tailwind breakpoints:
+
+Screen	Prefix	Example
+Mobile	(default)	text-sm
+Tablet	md:	md:text-base
+Desktop	lg:	lg:text-lg
+
+Example:
+
+<div className="flex flex-col md:flex-row justify-between items-center">
+
+🌗 Theme Switcher
+
+Integrated Tailwind dark mode using class-based switching.
+
+Implemented ThemeContext for persistent theme toggling.
+
+🪄 Custom Animations
+
+Extended Tailwind with custom keyframes:
+
+extend: {
+  keyframes: {
+    fadeIn: { "0%": { opacity: 0 }, "100%": { opacity: 1 } },
+  },
+  animation: {
+    fadeIn: "fadeIn 1s ease-in-out",
+  },
+},
+
+
+Used in components:
+
+<h1 className="animate-fadeIn text-3xl font-bold text-yellow-600">Welcome 🐝</h1>
+
+
+✅ Final UI is interactive, accessible, and visually appealing.
+
+🧰 Technologies Used
+Technology	Purpose
+React (Vite)	Front-end library and fast build tool
+Tailwind CSS	Responsive, utility-first styling
+React Router	Client-side routing
+Context API	Theme management
+JSONPlaceholder API	Mock API for data fetching
+Lucide Icons	Modern icon set for theme toggle & UI elements
+🧭 Folder Structure
+src/
+├── components/
+│   ├── Button.jsx
+│   ├── Card.jsx
+│   ├── Navbar.jsx
+│   ├── Footer.jsx
+│   └── Layout.jsx
+│
+├── pages/
+│   ├── Home.jsx
+│   ├── Tasks.jsx
+│   └── ApiData.jsx
+│
+├── context/
+│   └── ThemeContext.jsx
+│
+├── hooks/
+│   └── useLocalStorage.js
+│
+├── App.jsx
+└── main.jsx
+
+🧪 Expected Outcome
+
+By completing all five tasks, the final application achieves:
+
+✅ Fully functional React application
+
+✅ Reusable and modular components
+
+✅ Efficient state management with hooks
+
+✅ Smooth API integration
+
+✅ Responsive, animated, and theme-aware UI
+
+✅ Clean, maintainable, and production-ready code
+
+🖼️ Screenshots (Add Your Own)
+Light Mode	Dark Mode	Task Manager	API Page
+
+	
+	
+	
+
+(Ensure your screenshots are saved in a /screenshots folder.)
+
+🛠️ Setup and Installation
+Prerequisites
+
+Node.js v18 or higher
+
+npm or yarn
+
+Installation Steps
+
+Clone your repository:
+
+git clone https://github.com/<your-username>/<your-repo-name>.git
+cd <your-repo-name>
+
+
+Install dependencies:
+
+npm install
+
+
+Start the development server:
+
+npm run dev
+
+
+Build for production:
+
+npm run build
+
+
+Preview the build:
+
+npm run preview
+
+🚀 Deployment
+
+Deploy the app using any of these services:
+
+Vercel
+
+Netlify
+
+GitHub Pages
+
+Example Deployment Command (Vercel)
+npm install -g vercel
+vercel
+
+
+After deployment, include your live link here:
+
+🌐 Live Demo: https://your-app-name.vercel.app
+
+✅ Submission Instructions
+
+Accept the GitHub Classroom invitation.
+
+Clone your personal repository.
+
+Complete all five tasks and push your code regularly.
+
+Include:
+
+All source files (components, hooks, pages)
+
+Screenshots in /screenshots
+
+This README.md file
+
+Deploy your app and add the deployed URL above.
+
+Push all changes to your repository before the deadline.
+
+📚 Key Learnings
+
+Understanding React’s component-based architecture
+
+Using JSX effectively for dynamic UIs
+
+Managing state and side effects with hooks
+
+Consuming REST APIs in React
+
+Styling with Tailwind’s utility classes
+
+Implementing responsive layouts and dark mode
+
+✨ Author
+
+👨‍💻 Richard Wambua
+MERN Stack Developer | Front-End Enthusiast
+📍 Kenya
+📧 wambuarichard335@gmail.com
+💻 Wambua-Richard
