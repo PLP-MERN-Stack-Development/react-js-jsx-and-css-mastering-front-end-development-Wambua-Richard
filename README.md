@@ -307,7 +307,7 @@ vercel
 
 After deployment, include your live link here:
 
-🌐 Live Demo: https://app.netlify.com/projects/react-js-jsx-and-css-wk3/overview
+🌐 Live Demo: https://react-js-jsx-and-css-wk3.netlify.app/
 
 ✅ Submission Instructions
 
