@@ -267,8 +267,8 @@ Installation Steps
 
 Clone your repository:
 
-git clone https://github.com/<your-username>/<your-repo-name>.git
-cd <your-repo-name>
+git clone https://github.com/PLP-MERN-Stack-Development/react-js-jsx-and-css-mastering-front-end-development-Wambua-Richard.git
+cd react-js-jsx-and-css-mastering-front-end-development-Wambua-Richard
 
 
 Install dependencies:
@@ -307,7 +307,7 @@ vercel
 
 After deployment, include your live link here:
 
-🌐 Live Demo: https://your-app-name.vercel.app
+🌐 Live Demo: https://app.netlify.com/projects/react-js-jsx-and-css-wk3/overview
 
 ✅ Submission Instructions
 
